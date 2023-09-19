@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de hospdedes</title>
+
+    <script>
+
+
+var lista_hospedes = [];
+
+function inicio() {
+    alert("Hotel Palmeiras");
+
+    var nome_do_funcionario = prompt("Informe seu nome");
+    var senha_do_funcionario = prompt("Informe sua senha");
+    
+    switch (senha_do_funcionario) {
+        case "2678":
+            alert("Seja bem vindo " + nome_do_funcionario + " ao hotel Palmeiras");
+            sistema_cadastrar_hospedes();
+            break;
+        default:
+            alert("Senha incorreta. Acesso negado");
+            inicio();
+            break;
+    }
+}
+
+function sistema_cadastrar_hospedes() {
+    var escolha_hospedes = parseInt(prompt(
+        'Sistema Cadastro de Hóspedes\n\n Selecione uma opção: \n1. Cadastrar \n2. Pesquisar \n3. Listar \n4. Sair'
+    ));
+
+    switch (escolha_hospedes) {
+        case 1:
+            cadastrar_hospedes();
+            break;
+        case 2:
+            pesquisar_hospedes();
+            break;
+        case 3:
+            listar_todos_hospedes();
+            break;
+        case 4:
+            alert("Saindo do sistema.");
+            inicio();
+
+            break;
+        default:
+            erro_pesquisar_hospedes();
+            break;
+    }
+}
+
+
+
+var lista_hospedes = [];
+var quantidade_gratuidades = 0;
+var quantidade_meias_hospedagens = 0;
+var valor_total = 0;
+
+function cadastrar_hospedes() {
+    var valor_da_diaria = parseFloat(prompt("Qual o valor da diária?"));
+
+    if (isNaN(valor_da_diaria) || valor_da_diaria <= 0) {
+        alert("Valor da diária inválido.");
+        sistema_cadastrar_hospedes();
+        return;
+    }
+
+    var quantidade_de_dias = parseInt(prompt("Quantos dias serão necessários?"));
+
+    if (isNaN(quantidade_de_dias) || quantidade_de_dias > 30) {
+        alert("Quantidade de dias inválida.");
+        sistema_cadastrar_hospedes();
+        return;
+    }
+
+    while (true) {
+        let nome_hospede = prompt('Por favor, informe o nome da(o) hóspede (ou digite "PARE" para finalizar):');
+        
+        if (nome_hospede === "PARE") {
+            break;
+        }
+        
+        let idade_hospede = parseInt(prompt('Por favor, informe a idade da(o) hóspede:'));
+
+        if (idade_hospede < 6) {
+            alert(nome_hospede + " possui gratuidade.");
+            quantidade_gratuidades++;
+        } else if (idade_hospede > 60) {
+            valor_da_diaria = valor_da_diaria / 2; // Aplicar o desconto de 50% para hóspedes com mais de 60 anos.
+            quantidade_meias_hospedagens++;
+        }
+
+        lista_hospedes.push(nome_hospede);
+        console.log(lista_hospedes);
+        alert("Sucesso! Hóspede " + nome_hospede + " foi cadastrado com sucesso!\n");
+
+        valor_total += valor_da_diaria * quantidade_de_dias;
+    }
+
+    alert("Resumo:\nQuantidade de gratuidades: " + quantidade_gratuidades +
+          "\nQuantidade de meias hospedagens: " + quantidade_meias_hospedagens +
+          "\nValor total: R$" + valor_total);
+
+    sistema_cadastrar_hospedes();
+}
+
+
+
+
+
+
+function pesquisar_hospedes() {
+    let nome_hospede = prompt('Por favor, informe o nome da(o) hóspede para pesquisa:');
+
+    if (lista_hospedes.includes(nome_hospede)) {
+        alert(nome_hospede + ' encontrado(a).');
+    } else {
+        alert(nome_hospede + ' não foi encontrado(a).');
+    }
+
+    sistema_cadastrar_hospedes();
+}
+
+function listar_todos_hospedes() {
+    lista_hospedes.forEach(function(value, index) {
+        var posicao = index + 1;
+        alert("O Hóspede " + value + " ocupa a posição " + posicao);
+    });
+
+    sistema_cadastrar_hospedes();
+}
+
+function erro_pesquisar_hospedes() {
+    alert('Por favor, informe um número entre 1 e 4');
+    sistema_cadastrar_hospedes();
+}
+
+// Iniciar o programa chamando a função inicio.
+inicio();
+
+
+
+
+
+
+    </script>
+
+
+</head>
+<body>
+    
+</body>
+</html>

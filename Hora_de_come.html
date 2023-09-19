@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+function calcularCustoEvento() {
+    const capacidadeMaxima = 350; // Capacidade máxima de convidados
+    const precoCafeLitro = 0.80;
+    const precoAguaLitro = 0.40;
+    const precoSalgadosCento = 34.00;
+
+    alert ("Hotel Palmeiras, maior campeão brasieliro");
+
+    var numeroConvidados = parseInt(prompt("Qual o número de convidados para o evento?"));
+
+    if (isNaN(numeroConvidados) || numeroConvidados <= 0) {
+        alert("Quantidade de convidados inválida.");
+        calcularCustoEvento();
+    }
+
+    if (numeroConvidados > capacidadeMaxima) {
+        alert("Quantidade de convidados superior à capacidade máxima.");
+        calcularCustoEvento();
+    }
+
+    var litrosCafe = numeroConvidados * 0.1; // 100 convidados consomem 10 litros de café (0.1 litro por convidado)
+    var litrosAgua = numeroConvidados * 0.5; // 100 convidados consomem 50 litros de água (0.5 litro por convidado)
+    var centosSalgados = numeroConvidados * 7; // 100 convidados consomem 700 salgados (7 salgados por convidado)
+    var custoTotalComida = (litrosCafe * precoCafeLitro) + (litrosAgua * precoAguaLitro) + (centosSalgados * precoSalgadosCento);
+
+    alert("O evento precisará de " + litrosCafe.toFixed(2) + " litros de café, " + litrosAgua.toFixed(2) + " litros de água, " + centosSalgados + " salgados. O custo total do evento será de R$ " + custoTotalComida.toFixed(2));
+
+    var confirmacao = prompt("Gostaria de efetuar a reserva? S/N").toUpperCase();
+
+    if (confirmacao === "S") {
+        var nomeCliente = prompt("Por favor, informe seu nome:");
+        alert(nomeCliente + ", reserva efetuada com sucesso.");
+        calcularCustoEvento();
+    } else {
+        alert("Reserva não efetuada.");
+        calcularCustoEvento();
+    }
+}
+
+calcularCustoEvento();
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

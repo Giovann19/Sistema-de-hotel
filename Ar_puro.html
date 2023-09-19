@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+//Ar Puro Finalmente
+
+function calcularValorServico() {
+    var nomeEmpresa = prompt("Qual o nome da empresa?");
+    var valorPorAparelho = parseFloat(prompt("Qual o valor por aparelho?"));
+    var quantidadeAparelhos = parseInt(prompt("Qual a quantidade de aparelhos?"));
+    var percentualDesconto = parseFloat(prompt("Qual a porcentagem de desconto?"));
+    var quantidadeMinimaDesconto = parseInt(prompt("Qual o número mínimo de aparelhos para conseguir o desconto?"));
+
+    var valorTotal = valorPorAparelho * quantidadeAparelhos;
+
+    if (quantidadeAparelhos >= quantidadeMinimaDesconto) {
+        var desconto = (percentualDesconto / 100) * valorTotal;
+        valorTotal -= desconto;
+    }
+
+    alert("O serviço de " + nomeEmpresa + " custará R$ " + valorTotal.toFixed(2));
+
+    return valorTotal;
+}
+
+function main() {
+    var menorValor = Infinity;
+    var nomeEmpresaMenorValor = "";
+
+    do {
+        var valorServico = calcularValorServico();
+
+        if (valorServico < menorValor) {
+            menorValor = valorServico;
+            nomeEmpresaMenorValor = prompt("Qual o nome da empresa?");
+        }
+
+        var continuar = prompt("Deseja informar novos dados? (S/N)").toUpperCase();
+    } while (continuar === "S");
+
+    alert("O orçamento de menor valor é o de " + nomeEmpresaMenorValor + " por R$ " + menorValor.toFixed(2));
+}
+
+main();
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

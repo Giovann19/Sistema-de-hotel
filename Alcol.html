@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alcol ou Gasolina </title>
+
+<script>
+//alcol ou gasolina
+
+function verificarCombustivelMaisBarato() {
+    var precoAlcoolWayneOil = parseFloat(prompt("Qual o valor do álcool no posto Wayne Oil?"));
+    var precoGasolinaWayneOil = parseFloat(prompt("Qual o valor da gasolina no posto Wayne Oil?"));
+    var precoAlcoolStarkPetrol = parseFloat(prompt("Qual o valor do álcool no posto Stark Petrol?"));
+    var precoGasolinaStarkPetrol = parseFloat(prompt("Qual o valor da gasolina no posto Stark Petrol?"));
+
+    var precoAlcoolMaisBarato = Math.min(precoAlcoolWayneOil, precoAlcoolStarkPetrol);
+    var precoGasolinaMaisBarato = Math.min(precoGasolinaWayneOil, precoGasolinaStarkPetrol);
+
+    var volumeTanqueCarro = 42;
+    var economiaMinima = precoGasolinaMaisBarato * 0.3; // 30% de economia em relação à gasolina
+
+    if (precoAlcoolMaisBarato < (precoGasolinaMaisBarato - economiaMinima)) {
+        alert("É mais barato abastecer com álcool no posto " + (precoAlcoolWayneOil < precoAlcoolStarkPetrol ? "Wayne Oil" : "Stark Petrol"));
+        verificarCombustivelMaisBarato();
+    } else {
+        alert("É mais barato abastecer com gasolina no posto " + (precoGasolinaWayneOil < precoGasolinaStarkPetrol ? "Wayne Oil" : "Stark Petrol"));
+        verificarCombustivelMaisBarato();
+    }     
+}
+
+verificarCombustivelMaisBarato();
+
+
+
+</script>
+
+</head>
+<body>
+    
+</body>
+</html>

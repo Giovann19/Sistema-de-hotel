@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Que horas voce pode </title>
+
+    <script>
+function verificarDisponibilidadeRestaurante() {
+    const diasDisponiveis = ["segunda", "terça", "quarta", "quinta", "sexta"];
+    const horarioAbertura = 7;
+    const horarioFechamentoSemana = 23;
+    const horarioFechamentoFimDeSemana = 15;
+
+    var diaDaSemana = prompt("Qual o dia do seu evento?").toLowerCase(); // Converter para minúsculas
+    var horaDoEvento = parseInt(prompt("Qual a hora do seu evento?"));
+    
+    if (diasDisponiveis.includes(diaDaSemana) && 
+        (horaDoEvento >= horarioAbertura && horaDoEvento <= horarioFechamentoSemana)) {
+        var nomeDaEmpresa = prompt("Qual o nome da empresa?");
+        alert("Restaurante reservado para " + nomeDaEmpresa + ": " + diaDaSemana + " às " + horaDoEvento + "hs.");
+    } else {
+        alert("Restaurante indisponível");
+    }
+}
+
+verificarDisponibilidadeRestaurante();
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

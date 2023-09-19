@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+function senha() {
+    var nome_do_funcionario = prompt("Informe seu nome");
+    var senha = prompt("Informe sua senha");
+
+    if (senha === "2678") { // Verifica se a senha fornecida é igual a "2678"
+        alert("Seja bem-vindo " + nome_do_funcionario);
+    } else {
+        alert("Senha incorreta");
+    }
+}
+
+senha();
+
+
+
+function calcularCustoDoEvento() {
+    const custoPorHoraPorGarcom = 10.50;
+
+    var horasDoEvento = parseFloat(prompt("Qual a duração do evento em horas?"));
+
+    if (isNaN(horasDoEvento) || horasDoEvento <= 0 || horasDoEvento > 24) {
+        alert("Quantidade de horas inválida. O evento deve durar entre 1 e 24 horas.");
+        return;
+    }
+
+    var numeroDeGarcons = parseInt(prompt("Quantos garçons serão necessários?"));
+
+    if (isNaN(numeroDeGarcons) || numeroDeGarcons <= 0) {
+        alert("Número de garçons inválido. Pelo menos um garçom é necessário.");
+        return;
+    }
+
+    var custoTotal = custoPorHoraPorGarcom * horasDoEvento * numeroDeGarcons;
+
+    alert("Custo total: R$ " + custoTotal.toFixed(2));
+
+    var confirmacao = prompt("Gostaria de efetuar a reserva? S/N").toUpperCase();
+
+    if (confirmacao === "S") {
+        var nomeCliente = prompt("Por favor, informe seu nome:");
+        alert(nomeCliente + ", reserva efetuada com sucesso.");
+    } else {
+        alert("Reserva não efetuada.");
+    }
+}
+
+calcularCustoDoEvento();
+
+
+     
+        
+
+
+    </script>
+
+
+
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        //Auditorio para quantos 
+
+        function verificarAuditório() {
+    const capacidadeAuditórioLaranja = 150;
+    const capacidadeAdicionalAuditórioLaranja = 70;
+    const capacidadeAuditórioColorado = 350;
+
+    var numeroConvidados = parseInt(prompt("Qual o número de convidados para o seu evento?"));
+
+    if (isNaN(numeroConvidados) || numeroConvidados < 0) {
+        alert("Número de convidados inválido.");
+        return;
+    }
+
+    if (numeroConvidados > capacidadeAuditórioColorado) {
+        alert("Quantidade de convidados superior à capacidade máxima.");
+    } else if (numeroConvidados <= capacidadeAuditórioLaranja) {
+        alert("Use o auditório Laranja");
+        
+        if (numeroConvidados > capacidadeAuditórioLaranja) {
+            var cadeirasNecessarias = numeroConvidados - capacidadeAuditórioLaranja;
+            if (cadeirasNecessarias <= capacidadeAdicionalAuditórioLaranja) {
+                alert("Inclua mais " + cadeirasNecessarias + " cadeira(s)");
+            } else {
+                alert("Número de convidados superior à capacidade máxima do auditório Laranja.");
+            }
+        }
+    } else {
+        alert("Use o auditório Colorado");
+    }
+
+    var confirmacao = prompt("Gostaria de efetuar a reserva? S/N").toUpperCase();
+
+    if (confirmacao === "S") {
+        var nomeCliente = prompt("Por favor, informe seu nome:");
+        alert(nomeCliente + ", reserva efetuada com sucesso.");
+    } else {
+        alert("Reserva não efetuada.");
+    }
+}
+
+verificarAuditório();
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
